@@ -1,7 +1,28 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { MantineProvider } from "@mantine/core";
+import Login from "./components/login/login.tsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>main</div>
+  },
+  {
+    path: "login",
+    element: <Login />
+  },
+  {
+    path: "*",
+    element: <div>404</div>
+  }
+]);
+
 function App() {
   return (
     <>
-      <h1>Buy Better</h1>
+      <MantineProvider defaultColorScheme="dark">
+        <RouterProvider router={router} />
+      </MantineProvider>
     </>
   );
 }
