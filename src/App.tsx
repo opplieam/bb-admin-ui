@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import Login from "./components/login/Login.tsx";
+import ErrorNotFound from "./components/error/ErrorNotFound.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>404</div>
+    element: <ErrorNotFound />
   }
 ]);
 
