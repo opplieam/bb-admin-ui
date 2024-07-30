@@ -6,20 +6,10 @@ import {
   TextInput,
   Title
 } from "@mantine/core";
-import { hasLength, isEmail, useForm } from "@mantine/form";
+import useLoginForm from "./hook/useLoginForm.ts";
 
 function Login() {
-  const form = useForm({
-    mode: "uncontrolled",
-    initialValues: {
-      email: "",
-      password: ""
-    },
-    validate: {
-      email: isEmail("Invalid Email"),
-      password: hasLength({ min: 8 }, "Invalid Password")
-    }
-  });
+  const form = useLoginForm();
 
   const submitHandler = values => {
     console.log(values);
