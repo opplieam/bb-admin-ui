@@ -1,11 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/login/Login.tsx";
 import ErrorNotFound from "./components/error/ErrorNotFound.tsx";
+import PrivateRoute from "./components/PrivateRoute.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>main</div>
+    element: <PrivateRoute />
   },
   {
     path: "login",
