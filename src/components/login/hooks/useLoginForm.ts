@@ -1,7 +1,7 @@
-import { hasLength, isEmail, useForm } from "@mantine/form";
+import { hasLength, isNotEmpty, useForm } from "@mantine/form";
 
 type CredentialForm = {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -9,11 +9,11 @@ function useLoginForm() {
   return useForm<CredentialForm>({
     mode: "uncontrolled",
     initialValues: {
-      email: "",
+      username: "",
       password: ""
     },
     validate: {
-      email: isEmail("Invalid Email"),
+      username: isNotEmpty("Invalid Username"),
       password: hasLength({ min: 8 }, "Invalid Password")
     }
   });
