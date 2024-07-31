@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <>
     <QueryClientProvider client={queryClient}>
       <MantineProvider defaultColorScheme="dark">
-        <Notifications withBorder radius="md" position="top-right" />
+        <Notifications radius="md" position="top-right" />
         <App />
         <ReactQueryDevtools />
       </MantineProvider>

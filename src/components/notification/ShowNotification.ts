@@ -18,14 +18,16 @@ function ShowNotification(style: NotiStyle, title: string, message: string) {
           title: { color: theme.white },
           description: { color: theme.white }
         }),
-        style: { backgroundColor: "red" }
+        style: { backgroundColor: "red" },
+        withBorder: true
       });
       break;
 
     case NotiStyle.default:
       notifications.show({
         title: title,
-        message: message
+        message: message,
+        withBorder: true
       });
       break;
 
@@ -39,7 +41,8 @@ function ShowNotification(style: NotiStyle, title: string, message: string) {
           title: { color: theme.white },
           description: { color: theme.white }
         }),
-        style: { backgroundColor: "blue" }
+        style: { backgroundColor: "blue" },
+        withBorder: true
       });
       break;
   }
