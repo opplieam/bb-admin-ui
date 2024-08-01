@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Group, Code, Text } from "@mantine/core";
 import {
   IconSwitchHorizontal,
-  IconLogout,
   IconUser,
   IconCategory,
   IconBrandProducthunt
 } from "@tabler/icons-react";
 import classes from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
+import Logout from "../authenticate/Logout.tsx";
 
 const data = [
   { link: "account", label: "Account Management", icon: IconUser },
@@ -17,7 +17,7 @@ const data = [
 ];
 
 function Navbar() {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState("Category Matching");
   const navigate = useNavigate();
 
   const links = data.map(item => (
@@ -59,15 +59,7 @@ function Navbar() {
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
           <span>Change account</span>
         </a>
-
-        <a
-          href="#"
-          className={classes.link}
-          onClick={event => event.preventDefault()}
-        >
-          <IconLogout className={classes.linkIcon} stroke={1.5} />
-          <span>Logout</span>
-        </a>
+        <Logout classes={classes} />
       </div>
     </nav>
   );

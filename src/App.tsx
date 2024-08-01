@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/login/Login.tsx";
+import Login from "./components/authenticate/Login.tsx";
 import ErrorNotFound from "./components/error/ErrorNotFound.tsx";
 import PrivateRouteLayout from "./components/PrivateRouteLayout.tsx";
 import Account from "./components/account/Account.tsx";
@@ -11,7 +11,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <PrivateRouteLayout />,
     children: [
-      { index: true, path: "category", element: <Category /> },
+      { index: true, element: <Category /> },
+      { path: "category", element: <Category /> },
       { path: "account", element: <Account /> },
       { path: "product", element: <Product /> }
     ]

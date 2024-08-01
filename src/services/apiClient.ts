@@ -14,6 +14,10 @@ class ApiClient<T, R> {
   authenticate = (data: R) => {
     return axiosInstance.post<T>(this.endpoint, data).then(res => res.data);
   };
+
+  logout = () => {
+    return axiosInstance.delete<T>(this.endpoint).then(res => res.data);
+  };
 }
 
 export default ApiClient;
