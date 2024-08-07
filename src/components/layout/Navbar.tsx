@@ -7,28 +7,31 @@ import {
   IconBrandProducthunt
 } from "@tabler/icons-react";
 import classes from "./Navbar.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logout from "../authenticate/Logout.tsx";
 
 const data = [
-  { link: "account", label: "Account Management", icon: IconUser },
-  { link: "category", label: "Category Matching", icon: IconCategory },
-  { link: "product", label: "Product Matching", icon: IconBrandProducthunt }
+  { link: "/account", label: "Account Management", icon: IconUser },
+  { link: "/category", label: "Category Matching", icon: IconCategory },
+  { link: "/product", label: "Product Matching", icon: IconBrandProducthunt }
 ];
 
 function Navbar() {
-  const [active, setActive] = useState("Category Matching");
+  const { pathname } = useLocation();
+  const [active, setActive] = useState(
+    pathname === "/" ? "/category" : pathname
+  );
   const navigate = useNavigate();
 
   const links = data.map(item => (
     <a
       className={classes.link}
-      data-active={item.label === active || undefined}
+      data-active={item.link === active || undefined}
       href="#"
       key={item.label}
       onClick={event => {
         event.preventDefault();
-        setActive(item.label);
+        setActive(item.link);
         navigate(item.link);
       }}
     >
