@@ -15,7 +15,7 @@ axiosInstance.interceptors.request.use(function(
   return config;
 });
 
-class AccountApiClient<T> {
+class AccountApiClient<T, R> {
   endpoint: string;
 
   constructor(endpoint: string) {
@@ -24,6 +24,10 @@ class AccountApiClient<T> {
 
   getAllUsers = () => {
     return axiosInstance.get<T>(this.endpoint).then(res => res.data);
+  };
+
+  createUser = (data: R) => {
+    return axiosInstance.post<T>(this.endpoint, data).then(res => res.data);
   };
 }
 
