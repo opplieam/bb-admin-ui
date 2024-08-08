@@ -29,6 +29,10 @@ class AccountApiClient<T, R> {
   createUser = (data: R) => {
     return axiosInstance.post<T>(this.endpoint, data).then(res => res.data);
   };
+
+  updateUser = (data: R) => {
+    return axiosInstance.patch<T>(this.endpoint, data).then(res => res.data);
+  };
 }
 
 export default AccountApiClient;
