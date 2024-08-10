@@ -1,19 +1,17 @@
-import axios, { InternalAxiosRequestConfig } from "axios";
+import axios from "axios";
+import { addAuthHeaderInterceptor } from "./addAuthHeaderInterceptor.ts";
+import { refreshTokenInterceptor } from "./refreshTokenInterceptor.ts";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/v1"
+  baseURL: "http://localhost:3000/v1",
+  withCredentials: true
 });
 
-axiosInstance.interceptors.request.use(function(
-  config: InternalAxiosRequestConfig
-) {
-  const token: string = localStorage.getItem("token");
-  if (!token) {
-    console.error("No token");
-  }
-  config.headers["Authorization"] = "Bearer " + token;
-  return config;
-});
+axiosInstance.interceptors.request.use(addAuthHeaderInterceptor);
+axiosInstance.interceptors.response.use(
+  response => response,
+  error => refreshTokenInterceptor(error, axiosInstance)
+);
 
 class AccountApiClient<T, R> {
   endpoint: string;
