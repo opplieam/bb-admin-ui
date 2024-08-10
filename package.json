@@ -26,6 +26,7 @@
     "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.45.3",
     "@tanstack/eslint-plugin-query": "^5.51.15",
     "@types/node": "^22.1.0",
