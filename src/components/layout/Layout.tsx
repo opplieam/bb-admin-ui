@@ -29,9 +29,9 @@ function Layout() {
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer>
-        <Footer />
-      </AppShell.Footer>
+      {/*<AppShell.Footer>*/}
+      {/*  <Footer />*/}
+      {/*</AppShell.Footer>*/}
     </AppShell>
   );
 }
